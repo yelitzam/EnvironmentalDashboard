@@ -16,7 +16,9 @@ router.get("/city-data", async (req, res) => {
         const coords = await getCoordinates(city);
         console.log(coords);
         const weather = await getWeather(coords.lat, coords.lon);
+        console.log(coords);
         const airquality = await getAirQuality(coords.lat, coords.lon);
+        console.log(coords);
         res.json({
             city,
             coordinates: coords,
