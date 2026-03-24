@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function ApiLogs(){
     const [logs, setLogs] = useState([]);
     useEffect(()=>{
         const interval = setInterval(() => {
-            fetch("http://localhost:5000/api/logs").then((res)=>res.json()).then(setLogs);
+            fetch(`${BASE_URL}/api/logs`).then((res)=>res.json()).then(setLogs);
         }, 3000);
         return()=> clearInterval(interval);
     }, []);
